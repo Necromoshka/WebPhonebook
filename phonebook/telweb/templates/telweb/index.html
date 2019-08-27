@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"; http-equiv="Content-Type"; content="text/html">
+    <title>Главная - Телефонный справочник</title>
+</head>
+<body>
+    <h1>Персонал</h1>
+    {% for pr in prs %}
+            <div>
+                <h2>{{ pr.name }}</h2>
+                <p> {{ pr.surnsurnameame }} </p>
+                <p> {{ pr.patronymic }} </p>
+                <p> {{ pr.mob_tel_num }} </p>
+                <p> {{ pr.em }}</p>
+                <p> {{ pr.subdivision }}</p>
+            </div>
+    {% endfor %}
+
+</body>
+</html>
