@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import index, by_intel
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('<str:telnum>/',by_intel),
+    path('', index),
 ]
