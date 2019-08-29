@@ -1,0 +1,61 @@
+header h1 {
+    font-size: 40pt;
+    text-transform: uppercase;
+    text-align: center;
+    background: url("bg.png") left / auto 100% no-repeat;
+}
+
+nav {
+    font-size: 16pt;
+    width: 150px;
+    float: left;
+}
+
+nav a {
+    display: block;
+    margin: 10px 0 px;
+    font-size: 9pt;
+}
+
+section {
+    margin-left: 170px;
+
+}
+
+
+ /* внешние границы таблицы серого цвета толщиной 1px */
+section table {
+    border: 1px solid grey;
+    border-collapse: separate;
+    width: 100%;
+    border-radius: 7px;
+    border: grey solid 2px;
+
+    }
+    /* границы ячеек первого ряда таблицы */
+section th {
+    border: 1px solid grey;
+    border-radius: 7px;
+    border: grey solid 1px;
+    padding: 3px;
+}
+    /* границы ячеек тела таблицы */
+section td {
+    border: 1px solid grey;
+    border-radius: 7px;
+    border: grey solid 1px;
+    padding: 3px;
+}
+
+section tr:nth-child(odd) {
+    background: white;
+    border-radius: 7px;
+    border: grey  solid 1px;
+    padding: 3px;
+}
+section tr:nth-child(even) {
+    background: #DDDDDD;
+    border-radius: 7px;
+    border:  grey solid 1px;
+    padding: 3px;
+}

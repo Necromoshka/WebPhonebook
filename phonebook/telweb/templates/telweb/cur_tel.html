@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta http-equiv="Content-Type"
-          content="text/html"; charset="UTF-8">
-    <title>{{ title }}-Телефонный справочник</title>
-</head>
-<body>
-<a href="{% url 'index' %}" >Главная</a>
+{% extends "layout/basic.html" %}
+
+    <title>{% block title %} {{ title }} {% endblock %}-Телефонный справочник</title>
+
+{% block content %}
         <h1>{{ title }}</h1>
     {% for pr in prs %}
             <div>
-                <h2>{{ pr.name }}</h2>
+                <p> {{ pr.name }}</p>
                 <p> {{ pr.surnsurnameame }} </p>
                 <p> {{ pr.patronymic }} </p>
                 <p> {{ pr.mob_tel_num }} </p>
@@ -19,6 +15,4 @@
                 <p> {{ pr.extension }}</p>
             </div>
     {% endfor %}
-<a href="{% url 'add' %}" >Добавить</a>
-</body>
-</html>
+    {% endblock %}

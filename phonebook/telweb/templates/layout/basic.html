@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"; http-equiv="Content-Type"; content="text/html">
+    <link rel="stylesheet" type="text/css" href="{% static 'telweb/style.css' %}">
+    <title>{% block title %} Главная {% endblock %} - Телефонный справочник</title>
+</head>
+<body>
+<header>
+    <h1> Телефонный справочник </h1>
+</header>
+    <nav>
+        <a href="{% url 'index' %}" >Главная</a>
+        <a href="{% url 'addTel' %}" >Добавить номер</a>
+        <a href="{% url 'addPr' %}" >Добавить абонента</a>
+    </nav>
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+</body>
+</html>

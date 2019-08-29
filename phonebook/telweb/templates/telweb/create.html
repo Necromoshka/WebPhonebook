@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-     <meta http-equiv="Content-Type"
-          content="text/html"; charset="UTF-8">
-    <title>Добавить аббонента - Телефонный справочник</title>
-</head>
-<body>
+{% extends "layout/basic.html" %}
+    <title>{% block title %}Добавить аббонента {% endblock %} - Телефонный справочник</title>
+{% block content %}
+
 <h1>Добавить аббонента</h1>
 <div>
-    <a href="{% url 'index' %}" >Главная</a>
     {% for pr in prs %}
     <p><a href="{% url 'by_intel' pr.extension %}" >Внутренний номер: {{ pr.extension }}</a></p>
     {% endfor %}
@@ -19,6 +14,4 @@
     {{ form.as_p }}
     <input type="submit" value="Добавить">
 </form>
-
-</body>
-</html>
+{% endblock %}

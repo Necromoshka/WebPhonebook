@@ -4,7 +4,7 @@ from .models import Person, InTel
 #from django.template import loader
 
 from django.views.generic.edit import CreateView
-from .forms import PrForm
+from .forms import PrForm, telForm
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -33,4 +33,14 @@ class PrCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['prs'] = Person.objects.all()
+        return context
+
+class telCreateView(CreateView):
+    template_name = 'telweb/createTel.html'
+    form_class = telForm
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['In_tel'] = InTel.objects.all()
         return context

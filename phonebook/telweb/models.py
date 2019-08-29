@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Organization(models.Model):
-    filial=models.CharField(max_length=50, verbose_name='Филиал', db_index=True)
+    filial=models.CharField(max_length=50, verbose_name='Филиал', db_index=True, unique=True)
     def __str__(self):
         return self.filial
 
@@ -25,7 +25,7 @@ class Cabinet(models.Model):
 
 
 class InTel(models.Model):
-    tel = models.CharField(max_length=4, verbose_name='Внутренний номер', db_index=True)
+    tel = models.CharField(max_length=4, verbose_name='Внутренний номер', db_index=True, unique=True)
     in_room = models.ForeignKey('Cabinet', null=True, on_delete=models.PROTECT, verbose_name='Номер кабинета')
     def __str__(self):
         return self.tel

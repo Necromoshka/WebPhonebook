@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+    <title>{% block title %} Добавить номер {% endblock %}- Телефонный справочник</title>
+
+{% block content %}
+<h1>Добавить номер</h1>
+<div>
+    {% for pr in In_tel %}
+    <p><a href="{% url 'by_intel' pr.tel %}" >Внутренний номер: {{ pr.tel }}</a></p>
+    {% endfor %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+{% endblock %}
