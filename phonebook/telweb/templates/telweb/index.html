@@ -14,9 +14,9 @@
                 <p> моб.тел: {{ pr.mob_tel_num }} </p>
                  <p>Email: {{ pr.em }}</p>
                    <p>Подразделение: {{ pr.subdivision }}</p>
-                <p>Внутренний номер: {{ pr.extension }}</p>
+                <p><a href="{% url 'by_intel' pr.extension %}" >Внутренний номер: {{ pr.extension }}</a></p>
             </div>
     {% endfor %}
-
+<a href="{% url 'add' %}" >Добавить</a>
 </body>
 </html>

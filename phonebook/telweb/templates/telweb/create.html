@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta http-equiv="Content-Type"
+          content="text/html"; charset="UTF-8">
+    <title>Добавить аббонента - Телефонный справочник</title>
+</head>
+<body>
+<h1>Добавить аббонента</h1>
+<div>
+    <a href="{% url 'index' %}" >Главная</a>
+    {% for pr in prs %}
+    <p><a href="{% url 'by_intel' pr.extension %}" >Внутренний номер: {{ pr.extension }}</a></p>
+    {% endfor %}
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+
+</body>
+</html>

@@ -3,6 +3,10 @@ from django.shortcuts import render
 from .models import Person, InTel
 #from django.template import loader
 
+from django.views.generic.edit import CreateView
+from .forms import PrForm
+from django.urls import reverse_lazy
+
 # Create your views here.
 def index(request):
  #   template = loader.get_template('telweb/index.html')
@@ -16,4 +20,17 @@ def index(request):
 def by_intel(request, telnum):
     in_t = InTel.objects.filter(tel=telnum)
     prs = Person.objects.filter(extension=in_t[0])
-    return render(request, 'telweb/cur_tel.html', {'prs':prs})
+    context = {'prs':prs, 'title':telnum}
+    return render(request, 'telweb/cur_tel.html', context)
+
+
+
+class PrCreateView(CreateView):
+    template_name = 'telweb/create.html'
+    form_class = PrForm
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['prs'] = Person.objects.all()
+        return context
