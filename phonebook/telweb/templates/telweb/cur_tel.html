@@ -3,16 +3,29 @@
     <title>{% block title %} {{ title }} {% endblock %}-Телефонный справочник</title>
 
 {% block content %}
-        <h1>{{ title }}</h1>
-    {% for pr in prs %}
             <div>
-                <p> {{ pr.name }}</p>
-                <p> {{ pr.surnsurnameame }} </p>
-                <p> {{ pr.patronymic }} </p>
-                <p> {{ pr.mob_tel_num }} </p>
-                <p> {{ pr.em }}</p>
-                <p> {{ pr.subdivision }}</p>
-                <p> {{ pr.extension }}</p>
-            </div>
+                <table>
+        <caption><h1>{{ title }}</h1></caption>
+        <tr>
+            <th>Имя:</th>
+            <th>Фамилия: </th>
+            <th>Отчество:</th>
+            <th>моб.тел:</th>
+            <th>Email:</th>
+            <th>Подразделение:</th>
+        </tr>
+    <tbody>
+    {% for pr in prs %}
+            <tr>
+                 <td> {{ pr.name }}</td>
+                 <td> {{ pr.surnsurnameame }} </td>
+                <td> {{ pr.patronymic }} </td>
+                <td>  {{ pr.mob_tel_num }} </td>
+                 <td>{{ pr.em }}</td>
+                   <td> {{ pr.subdivision }}</td>
+            </tr>
     {% endfor %}
+    </tbody>
+    </table>
+            </div>
     {% endblock %}

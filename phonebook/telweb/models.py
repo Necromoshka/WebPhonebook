@@ -14,7 +14,7 @@ class Organization(models.Model):
 
 class Cabinet(models.Model):
     room = models.CharField(max_length=4, verbose_name='Номер комнаты', db_index=True)
-    org = models.ForeignKey('Organization', null=True, on_delete=models.PROTECT, verbose_name='Филиал')
+    org = models.ForeignKey('Organization', null=True, on_delete=models.PROTECT, verbose_name='Филиал', related_name='entries', related_query_name='entry')
     def __str__(self):
         return self.room
 
@@ -26,7 +26,7 @@ class Cabinet(models.Model):
 
 class InTel(models.Model):
     tel = models.CharField(max_length=4, verbose_name='Внутренний номер', db_index=True, unique=True)
-    in_room = models.ForeignKey('Cabinet', null=True, on_delete=models.PROTECT, verbose_name='Номер кабинета')
+    in_room = models.ForeignKey('Cabinet', null=True, on_delete=models.PROTECT, verbose_name='Номер кабинета', related_name='entries', related_query_name='entry')
     def __str__(self):
         return self.tel
 
@@ -42,7 +42,7 @@ class Person(models.Model):
     mob_tel_num = models.CharField(max_length=15, null=True, blank=True, verbose_name='Мобильный телефон')
     em = models.EmailField(null=True,blank=True,verbose_name='Email')
     subdivision = models.CharField(max_length=25, db_index=True,verbose_name='Номер подраздиления')
-    extension = models.ForeignKey('InTel', null=True, on_delete=models.PROTECT, verbose_name='Внутренний номер')
+    extension = models.ForeignKey('InTel', null=True, on_delete=models.PROTECT, verbose_name='Внутренний номер', related_name='entries', related_query_name='entry')
 
 
     class Meta:
